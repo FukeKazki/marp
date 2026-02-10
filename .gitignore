@@ -1,0 +1,4 @@
+# Marp 生成物
+slides/**/*.html
+slides/**/*.pdf
+slides/**/*.pptx
