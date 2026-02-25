@@ -1,5 +1,5 @@
 ---
-name: marp-slides
+name: marp-slide-build
 description: Build and preview Marp slides from Markdown using the CLI. Use when building slides, exporting to HTML/PDF/PPTX, previewing presentations, or when the user mentions Marp, presentation slides, or slides/.
 ---
 
