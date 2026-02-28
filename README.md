@@ -20,7 +20,3 @@ npx @marp-team/marp-cli@latest slides/hello-world/hello-world.md -o slides/hello
 # プレビュー（ブラウザで開く）
 npx @marp-team/marp-cli@latest slides/hello-world/hello-world.md --preview
 ```
-
-## ディレクトリ
-
-- `hello-world/` — 構文学習用のハローワールド資料
