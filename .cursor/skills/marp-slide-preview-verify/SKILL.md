@@ -1,6 +1,6 @@
 ---
 name: marp-slide-preview-verify
-description: Serves Marp slides via local server and opens them in Browser IDE so the AI can verify slide content. Use when the user wants to confirm generated slides, when the AI needs to check slide display, or when verifying Marp output in the browser.
+description: Serves Marp slides via local server and opens them in Browser IDE so the AI can verify slide content. Use when the user says 表示確認, プレビューして, 確認して, or wants to confirm generated slides, check slide display, or verify Marp output in the browser. Do NOT use marp-slide-build (CLI build/--preview) for this — use this skill's server + browser_navigate workflow.
 ---
 
 # スライド表示確認

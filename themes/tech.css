@@ -148,6 +148,17 @@ section.lead .lead-meta::before {
   color: var(--color-accent);
 }
 
+/* 1枚目（lead）の会社ロゴ（右上に配置・半透明） */
+section.lead img {
+  position: absolute;
+  right: 56px;
+  top: 56px;
+  max-height: 120px;
+  width: auto;
+  margin: 0;
+  opacity: 0.5;
+}
+
 section.lead p {
   font-size: 22px;
   color: var(--color-foreground);

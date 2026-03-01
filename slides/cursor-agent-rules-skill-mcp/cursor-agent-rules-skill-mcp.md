@@ -6,6 +6,8 @@ paginate: true
 
 <!-- _class: lead -->
 
+![会社ロゴ](../assets/yoshinani-icon_full_500x500.png)
+
 # Cursor の AI まわりを整理する
 
 **AGENTS.md / RULE / SKILL / MCP** の解説

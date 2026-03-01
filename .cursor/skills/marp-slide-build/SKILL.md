@@ -1,11 +1,13 @@
 ---
 name: marp-slide-build
-description: Build and preview Marp slides from Markdown using the CLI. Use when building slides, exporting to HTML/PDF/PPTX, previewing presentations, or when the user mentions Marp, presentation slides, or slides/.
+description: Build and export Marp slides from Markdown using the CLI (HTML/PDF/PPTX output). Use when building slides, exporting to file, or when the user explicitly asks to "ビルド" or "export". Do NOT use for 表示確認 or プレビュー — use marp-slide-preview-verify (server + browser) instead.
 ---
 
 # Marp スライドビルド
 
 このリポジトリでは **Marp** で Markdown からスライドを生成する。インストールは不要で、`npx @marp-team/marp-cli@latest` で実行する。
+
+**注意**: ユーザーが「表示確認」「プレビューして」と言った場合は **ビルドや `--preview` ではなく**、**marp-slide-preview-verify**（サーバー起動＋Browser IDE）のワークフローで対応する。
 
 ## 前提
 

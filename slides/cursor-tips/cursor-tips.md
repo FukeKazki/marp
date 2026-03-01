@@ -6,6 +6,8 @@ paginate: true
 
 <!-- _class: lead -->
 
+![会社ロゴ](../assets/yoshinani-icon_full_500x500.png)
+
 # Cursor Tips
 
 効率よく使うための実践テクニック
