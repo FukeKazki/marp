@@ -11,12 +11,17 @@ slides/
 
 Node.js と npm が入っていれば、インストール不要で次のコマンドで利用できます。
 
+**カスタムテーマ**: 共通テーマは `themes/tech.css`（Marp の theme 名: `tech`）です。**リポジトリルートで**実行し、コマンドに **`--theme-set themes/tech.css`** を付けてテーマを読み込んでください。
+
 ## ビルド
 
 ```bash
 # HTML に出力（例: hello-world）
-npx @marp-team/marp-cli@latest slides/hello-world/hello-world.md -o slides/hello-world/hello-world.html
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/hello-world/hello-world.md -o slides/hello-world/hello-world.html
+
+# PDF に出力
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/hello-world/hello-world.md -o slides/hello-world/hello-world.pdf
 
 # プレビュー（ブラウザで開く）
-npx @marp-team/marp-cli@latest slides/hello-world/hello-world.md --preview
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/hello-world/hello-world.md --preview
 ```

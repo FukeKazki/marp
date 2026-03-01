@@ -11,33 +11,39 @@ description: Build and preview Marp slides from Markdown using the CLI. Use when
 
 - Node.js と npm が入っていること
 - スライドは **1 資料 1 ディレクトリ**: `slides/[タイトル]/[タイトル].md`（同ディレクトリに `.html` 等を出力）
+- **カスタムテーマ**: `themes/tech.css` を利用するため、**リポジトリルート**で実行し、必ず **`--theme-set themes/tech.css`** を付ける。
 
 ## CLI の基本
 
 ```bash
-npx @marp-team/marp-cli@latest <input.md> [options]
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css <input.md> [options]
 ```
 
 ## よく使うコマンド
 
 **HTML に出力**
 ```bash
-npx @marp-team/marp-cli@latest slides/<title>/<title>.md -o slides/<title>/<title>.html
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/<title>/<title>.md -o slides/<title>/<title>.html
 ```
 
 **プレビュー（ブラウザで開く）**
 ```bash
-npx @marp-team/marp-cli@latest slides/<title>/<title>.md --preview
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/<title>/<title>.md --preview
 ```
 
 **PDF に出力**（出力拡張子を `.pdf` にすると PDF が生成される）
 ```bash
-npx @marp-team/marp-cli@latest slides/<title>/<title>.md -o slides/<title>/<title>.pdf
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/<title>/<title>.md -o slides/<title>/<title>.pdf
 ```
 
 **PowerPoint に出力**（拡張子 `.pptx`）
 ```bash
-npx @marp-team/marp-cli@latest slides/<title>/<title>.md -o slides/<title>/<title>.pptx
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/<title>/<title>.md -o slides/<title>/<title>.pptx
+```
+
+**サーバーモード**（プレビュー用）
+```bash
+npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides --server
 ```
 
 ## スライド Markdown の約束

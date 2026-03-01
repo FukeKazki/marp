@@ -1,11 +1,11 @@
 ---
 name: marp-slide
-description: Create professional Marp presentation slides using the tech theme (template-tech.md). Use when users request slide creation, presentations, or Marp documents. Supports image layouts and "make it look good" requests with automatic quality improvements.
+description: Create professional Marp presentation slides using the tech theme (themes/tech.css). Use when users request slide creation, presentations, or Marp documents. Supports image layouts and "make it look good" requests with automatic quality improvements.
 ---
 
 # Marp Slide Creator
 
-Create professional, visually appealing Marp presentation slides using the tech theme (GitHub-style dark, code-friendly). Single template with embedded CSS and built-in best practices.
+Create professional, visually appealing Marp presentation slides using the tech theme (GitHub-style dark, code-friendly). Theme is defined in `themes/tech.css` (Marp theme name: `tech`). Each slide uses frontmatter `theme: tech`; **ビルド・プレビュー・サーバー時は必ず `--theme-set themes/tech.css` を付けてリポジトリルートで実行する**（PDF/HTML でテーマが反映される）。Use template `assets/template-tech.md` as the starting point.
 
 ## When to Use This Skill
 
@@ -27,7 +27,7 @@ Use this skill when the user:
    - For custom themes: `references/theme-css-guide.md`
 
 2. **Copy content from the template**:
-   - Use **`assets/template-tech.md`** as the only template (tech/code theme, dark background, embedded CSS)
+   - Use **`assets/template-tech.md`** as the only template. Set frontmatter **`theme: tech`**. ビルド時は `--theme-set themes/tech.css` を付ける（README / marp-slide-build スキル参照）。
 
 3. Read `references/best-practices.md` for quality guidelines
 
@@ -43,6 +43,7 @@ Use this skill when the user:
 
 ## Tech Theme
 
+- **Theme file**: `themes/tech.css` (Marp custom theme with `/* @theme tech */`). Frontmatter: `theme: tech`. ビルド時は `--theme-set themes/tech.css` を付ける。
 - **Colors**: GitHub-style dark background (#0d1117), blue headings (#58a6ff), green accent (#7ee787)
 - **Style**: Code fonts (Fira Code), Markdown-style headers with `#` / `##` symbols, left border accent
 - **Use for**: Programming tutorials, tech meetups, developer content, technical seminars
@@ -58,8 +59,8 @@ Use this skill when the user:
 
 2. **Apply template**
    - Load `assets/template-tech.md`
-   - CSS is already embedded - no external files needed
-   - Maintain template structure (frontmatter + `<style>` block)
+   - Frontmatter: `theme: tech`. ビルド・プレビュー・サーバーでは `--theme-set themes/tech.css` を付けて実行する。
+   - Maintain template structure (frontmatter + slide content only)
 
 3. **Structure content**
    - Title slide: `<!-- _class: lead -->` + h1
@@ -134,7 +135,7 @@ Save the final Marp file under the workspace slides directory:
 ## Quality Checklist
 
 Before delivering slides, verify:
-- [ ] Template used is `assets/template-tech.md` (CSS embedded)
+- [ ] Template used is `assets/template-tech.md` and frontmatter includes `theme: tech` (build with `--theme-set themes/tech.css`)
 - [ ] Title slide uses `<!-- _class: lead -->`
 - [ ] All h2 titles are concise (5-7 chars)
 - [ ] Bullet points are 3-5 items per slide
@@ -154,8 +155,9 @@ Before delivering slides, verify:
 ### Quality Guides
 - **Best practices**: `references/best-practices.md` - Quality guidelines for "cool" slides
 
-### Template
-- **Template**: `assets/template-tech.md` - Single template with embedded tech theme CSS
+### Theme & Template
+- **Theme**: `themes/tech.css` - Marp custom theme (repo root). Frontmatter: `theme: tech`. Build with `--theme-set themes/tech.css`.
+- **Template**: `assets/template-tech.md` - Starting point; references the theme, no inline CSS.
 
 ### Official External Links
 - **Marp Official Site**: https://marp.app/
