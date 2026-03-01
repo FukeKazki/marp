@@ -1,11 +1,11 @@
 ---
 name: marp-slide
-description: Create professional Marp presentation slides with 7 beautiful themes (default, minimal, colorful, dark, gradient, tech, business). Use when users request slide creation, presentations, or Marp documents. Supports custom themes, image layouts, and "make it look good" requests with automatic quality improvements.
+description: Create professional Marp presentation slides using the tech theme (template-tech.md). Use when users request slide creation, presentations, or Marp documents. Supports image layouts and "make it look good" requests with automatic quality improvements.
 ---
 
 # Marp Slide Creator
 
-Create professional, visually appealing Marp presentation slides with 7 pre-designed themes and built-in best practices.
+Create professional, visually appealing Marp presentation slides using the tech theme (GitHub-style dark, code-friendly). Single template with embedded CSS and built-in best practices.
 
 ## When to Use This Skill
 
@@ -13,26 +13,12 @@ Use this skill when the user:
 - Requests to create presentation slides or Marp documents
 - Asks to "make slides look good" or "improve slide design"
 - Provides vague instructions like "良い感じにして" (make it nice) or "かっこよく" (make it cool)
-- Wants to create lecture or seminar materials
+- Wants to create lecture or seminar materials (especially technical/developer content)
 - Needs bullet-point focused slides with occasional images
 
 ## Quick Start
 
-### Step 1: Select Theme
-
-First, determine the appropriate theme based on the user's request and content.
-
-**Quick theme selection:**
-- **Technical/Developer content** → tech theme
-- **Business/Corporate** → business theme
-- **Creative/Event** → colorful or gradient theme
-- **Academic/Simple** → minimal theme
-- **General/Unsure** → default theme
-- **Dark background preferred** → dark or tech theme
-
-For detailed theme selection guidance, read `references/theme-selection.md`.
-
-### Step 2: Create Slides
+### Step 1: Create Slides
 
 1. **Read relevant references first**:
    - Always start by reading `references/marp-syntax.md` for basic syntax
@@ -40,14 +26,8 @@ For detailed theme selection guidance, read `references/theme-selection.md`.
    - For advanced features (math, emoji): `references/advanced-features.md`
    - For custom themes: `references/theme-css-guide.md`
 
-2. Copy content from the appropriate template file:
-   - `assets/template-basic.md` - Default theme (most common)
-   - `assets/template-minimal.md` - Minimal theme
-   - `assets/template-colorful.md` - Colorful theme
-   - `assets/template-dark.md` - Dark mode theme
-   - `assets/template-gradient.md` - Gradient theme
-   - `assets/template-tech.md` - Tech/code theme
-   - `assets/template-business.md` - Business theme
+2. **Copy content from the template**:
+   - Use **`assets/template-tech.md`** as the only template (tech/code theme, dark background, embedded CSS)
 
 3. Read `references/best-practices.md` for quality guidelines
 
@@ -59,51 +39,13 @@ For detailed theme selection guidance, read `references/theme-selection.md`.
 
 5. Add images if needed using patterns from `references/image-patterns.md`
 
-6. Save to `/mnt/user-data/outputs/` with `.md` extension
+6. Save to `slides/[タイトル]/[タイトル].md` (1 presentation per directory; see AGENTS.md)
 
-## Available Themes
+## Tech Theme
 
-### 1. Default Theme
-**Colors**: Beige background, navy text, blue headings
-**Style**: Clean, sophisticated with decorative lines
-**Use for**: General seminars, lectures, presentations
-**Template**: `template-basic.md`
-
-### 2. Minimal Theme
-**Colors**: White background, gray text, black headings
-**Style**: Minimal decoration, wide margins, light fonts
-**Use for**: Content-focused presentations, academic talks
-**Template**: `template-minimal.md`
-
-### 3. Colorful & Pop Theme
-**Colors**: Pink gradient background, multi-color accents
-**Style**: Vibrant gradients, bold fonts, rainbow accents
-**Use for**: Youth-oriented events, creative projects
-**Template**: `template-colorful.md`
-
-### 4. Dark Mode Theme
-**Colors**: Black background, cyan/purple accents
-**Style**: Dark theme with glow effects, eye-friendly
-**Use for**: Tech presentations, evening talks, modern look
-**Template**: `template-dark.md`
-
-### 5. Gradient Background Theme
-**Colors**: Purple/pink/blue/green gradients (varies per slide)
-**Style**: Different gradient per slide, white text, shadows
-**Use for**: Visual-focused, creative presentations
-**Template**: `template-gradient.md`
-
-### 6. Tech/Code Theme
-**Colors**: GitHub-style dark background, blue/green accents
-**Style**: Code fonts, Markdown-style headers with # symbols
-**Use for**: Programming tutorials, tech meetups, developer content
-**Template**: `template-tech.md`
-
-### 7. Business Theme
-**Colors**: White background, navy headings, blue accents
-**Style**: Corporate presentation style, top border, table support
-**Use for**: Business presentations, proposals, reports
-**Template**: `template-business.md`
+- **Colors**: GitHub-style dark background (#0d1117), blue headings (#58a6ff), green accent (#7ee787)
+- **Style**: Code fonts (Fira Code), Markdown-style headers with `#` / `##` symbols, left border accent
+- **Use for**: Programming tutorials, tech meetups, developer content, technical seminars
 
 ## Creating Slides Process
 
@@ -114,46 +56,37 @@ For detailed theme selection guidance, read `references/theme-selection.md`.
    - Determine target audience
    - Assess formality level
 
-2. **Select theme**
-   - Use quick selection rules above
-   - If uncertain, consult `references/theme-selection.md`
-   - Default to default theme if still unsure
-
-3. **Apply template**
-   - Load appropriate template from `assets/`
+2. **Apply template**
+   - Load `assets/template-tech.md`
    - CSS is already embedded - no external files needed
-   - Maintain template structure
+   - Maintain template structure (frontmatter + `<style>` block)
 
-4. **Structure content**
+3. **Structure content**
    - Title slide: `<!-- _class: lead -->` + h1
    - Content slides: h2 title + bullet points
    - Keep titles to 5-7 characters (Japanese)
    - Use 3-5 bullet points per slide
 
-5. **Refine quality**
+4. **Refine quality**
    - Read `references/best-practices.md`
    - Ensure adequate whitespace
    - Maintain consistency
    - Keep text concise (15-25 chars per line)
 
-6. **Add images**
+5. **Add images**
    - If needed, consult `references/image-patterns.md`
    - Common: `![bg right:40%](image.png)` for side images
    - Use proper Marp image syntax
 
-7. **Output file**
-   - Save to `/mnt/user-data/outputs/`
-   - Use descriptive filename like `presentation.md`
+6. **Output file**
+   - Save to `slides/[タイトル]/[タイトル].md`
+   - Use descriptive directory and filename (e.g. `slides/MyTalk/MyTalk.md`)
 
 ## Handling "Make It Look Good" Requests
 
 When users give vague instructions like "良い感じにして", "かっこよく", or "make it cool":
 
-1. **Infer theme from content**:
-   - Business content → business theme
-   - Technical content → tech or dark theme
-   - Creative content → gradient or colorful theme
-   - General → default theme
+1. **Use the tech template** (only option) and keep structure consistent.
 
 2. **Apply best practices automatically**:
    - Shorten titles to 5-7 characters
@@ -194,21 +127,19 @@ Example lecture pattern:
 
 ## File Output
 
-Always save the final Marp file to `/mnt/user-data/outputs/` with `.md` extension:
-- `presentation.md`
-- `seminar-slides.md`
-- `lecture-materials.md`
+Save the final Marp file under the workspace slides directory:
+- Path: `slides/[タイトル]/[タイトル].md`
+- One directory per presentation; build artifacts (e.g. `.html`) in the same directory, gitignored.
 
 ## Quality Checklist
 
 Before delivering slides, verify:
-- [ ] Theme selected appropriately for content
-- [ ] CSS theme is embedded in the file
+- [ ] Template used is `assets/template-tech.md` (CSS embedded)
 - [ ] Title slide uses `<!-- _class: lead -->`
 - [ ] All h2 titles are concise (5-7 chars)
 - [ ] Bullet points are 3-5 items per slide
 - [ ] Images use proper Marp syntax
-- [ ] File saved to outputs directory
+- [ ] File saved to `slides/[タイトル]/[タイトル].md`
 - [ ] Content follows best practices
 
 ## References
@@ -220,13 +151,11 @@ Before delivering slides, verify:
 - **Advanced features**: `references/advanced-features.md` - Math, emoji, fragmented lists, Marp CLI, VS Code
 - **Official themes**: `references/official-themes.md` - default, gaia, uncover themes documentation
 
-### Quality & Selection Guides
-- **Theme selection**: `references/theme-selection.md` - How to choose the right theme for content
+### Quality Guides
 - **Best practices**: `references/best-practices.md` - Quality guidelines for "cool" slides
 
-### Templates & Assets
-- **Templates**: `assets/template-*.md` - Starting points with embedded CSS for each theme (7 themes)
-- **Standalone CSS**: `assets/theme-*.css` - CSS files for reference (already embedded in templates)
+### Template
+- **Template**: `assets/template-tech.md` - Single template with embedded tech theme CSS
 
 ### Official External Links
 - **Marp Official Site**: https://marp.app/
