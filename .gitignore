@@ -4,3 +4,6 @@
 slides/**/*.html
 slides/**/*.pdf
 slides/**/*.pptx
+
+# GitHub Pages ビルド成果物
+output/
