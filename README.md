@@ -25,3 +25,18 @@ npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/hello-world/he
 # プレビュー（ブラウザで開く）
 npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/hello-world/hello-world.md --preview
 ```
+
+## GitHub Pages での公開
+
+`slides/` や `themes/` に変更を push すると、GitHub Actions が自動でビルドし GitHub Pages にデプロイします。
+
+**初回セットアップ**: リポジトリの **Settings > Pages** で、Source に **GitHub Actions** を選択してください。
+
+**URL 形式**（`https://<owner>.github.io/<repo>/` がベース）:
+
+| ページ | URL |
+|--------|-----|
+| 一覧 | `https://<owner>.github.io/<repo>/` |
+| 各スライド | `https://<owner>.github.io/<repo>/<タイトル>/<タイトル>.html` |
+
+例: `hello-world` の場合 → `.../hello-world/hello-world.html`

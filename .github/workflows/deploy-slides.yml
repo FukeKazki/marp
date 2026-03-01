@@ -1,0 +1,87 @@
+name: Deploy Slides to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'slides/**'
+      - 'themes/**'
+      - '.github/workflows/deploy-slides.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Build all slides
+        run: |
+          npx @marp-team/marp-cli@latest -I slides -o output --theme-set themes/tech.css
+
+      - name: Generate index page
+        run: |
+          cat > output/index.html << 'INDEX'
+          <!DOCTYPE html>
+          <html lang="ja">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>スライド一覧</title>
+            <style>
+              body { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+              h1 { color: #333; }
+              ul { list-style: none; padding: 0; }
+              li { margin: 0.75rem 0; }
+              a { color: #0969da; text-decoration: none; }
+              a:hover { text-decoration: underline; }
+            </style>
+          </head>
+          <body>
+            <h1>スライド一覧</h1>
+            <ul>
+          INDEX
+          for dir in output/*/; do
+            if [ -d "$dir" ]; then
+              title=$(basename "$dir")
+              echo "              <li><a href=\"${title}/${title}.html\">${title}</a></li>" >> output/index.html
+            fi
+          done
+          cat >> output/index.html << 'INDEX'
+            </ul>
+          </body>
+          </html>
+          INDEX
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
