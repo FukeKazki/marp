@@ -1,5 +1,7 @@
 # Marp Theme Selection Guide
 
+> **このリポジトリでは tech テーマのみを使用**（`themes/tech.css` + `theme: tech`）。以下は参考のため残している。実際に利用するテンプレートは `assets/template-tech.md` のみ。
+
 Select the optimal theme from all 7 types according to your use case.
 
 ## Theme List and Use Cases
