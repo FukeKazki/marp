@@ -35,6 +35,12 @@ jobs:
         run: |
           npx @marp-team/marp-cli@latest -I slides -o output --theme-set themes/tech.css
 
+      - name: Copy assets
+        run: |
+          if [ -d slides/assets ]; then
+            cp -r slides/assets output/
+          fi
+
       - name: Generate index page
         run: |
           cat > output/index.html << 'INDEX'
