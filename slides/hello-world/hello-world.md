@@ -1,6 +1,7 @@
 ---
 marp: true
-theme: default
+theme: tech
+paginate: true
 ---
 
 # Marp ハローワールド
