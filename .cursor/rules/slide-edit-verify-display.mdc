@@ -1,0 +1,19 @@
+---
+description: スライド編集後は marp-slide-preview-verify で表示確認すること
+globs: slides/**/*.md
+alwaysApply: false
+---
+
+# スライド編集後の表示確認
+
+スライド（`slides/**/*.md`）を編集したら、**表示確認**を必ず行う。
+
+## 手順
+
+@.cursor/skills/marp-slide-preview-verify/SKILL.md のワークフローに従う。
+
+## ルール
+
+- スライドの **追加・修正・削除** をしたら、上記の表示確認を行う。
+- テーマやレイアウトの変更も、必ずブラウザで見て確認する。
+- ユーザーが「表示確認して」「プレビューして」と言った場合も同様にこの手順で確認する。

@@ -134,6 +134,20 @@ section.lead h1 {
   margin-bottom: 24px;
 }
 
+/* 1枚目スライドの所属・名前・日付（Marp の SVG 描画では ::after が表示されないため、スライド本文に .lead-meta で記載すること） */
+section.lead .lead-meta {
+  font-size: 14px;
+  color: var(--color-foreground);
+  font-family: var(--font-code);
+  margin-top: 32px;
+  line-height: 1.8;
+}
+
+section.lead .lead-meta::before {
+  content: '// ';
+  color: var(--color-accent);
+}
+
 section.lead p {
   font-size: 22px;
   color: var(--color-foreground);

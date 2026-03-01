@@ -10,6 +10,8 @@ paginate: true
 
 効率よく使うための実践テクニック
 
+<p class="lead-meta">所属: 株式会社YOSHINANI<br>名前: ふっけ<br>日付: 作成日</p>
+
 ---
 
 ## アジェンダ
