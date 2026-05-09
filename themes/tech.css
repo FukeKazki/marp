@@ -85,10 +85,11 @@ pre {
   background-color: var(--color-code-bg);
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  padding: 16px;
+  padding: 14px;
   overflow-x: auto;
+  overflow-wrap: anywhere;
   font-family: var(--font-code);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -165,16 +166,68 @@ section.lead p {
   font-family: var(--font-code);
 }
 
+/* 本文スライドのインライン画像（スクショ等）をスライド内に収める */
+section:not(.lead) img {
+  max-width: 92%;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  margin: 12px auto 0;
+  display: block;
+  object-fit: contain;
+}
+
+/* 箇条書き＋スクショがあるスライド向け（縦はみ出し抑制） */
+section.compact h2 {
+  margin-bottom: 16px;
+}
+
+section.compact ul,
+section.compact ol {
+  margin: 0 0 8px 0;
+}
+
+section.compact li {
+  margin-bottom: 4px;
+  font-size: 0.92em;
+}
+
+section.compact img {
+  max-height: 220px;
+  max-width: 88%;
+  margin-top: 8px;
+}
+
+/* スクショを単独ページで大きく見せる */
+section.hero-shot h2 {
+  margin-bottom: 12px;
+}
+
+section.hero-shot img {
+  max-width: 96%;
+  max-height: 560px;
+  width: auto;
+  height: auto;
+  margin: 4px auto 0;
+  object-fit: contain;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
+  max-width: 100%;
   margin: 20px 0;
+  table-layout: fixed;
 }
 
 th, td {
   border: 1px solid var(--color-border);
-  padding: 10px;
+  padding: 8px;
   text-align: left;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  font-size: 0.88em;
+  vertical-align: top;
 }
 
 th {

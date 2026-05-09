@@ -18,14 +18,16 @@ description: Build and export Marp slides from Markdown using the CLI (HTML/PDF/
 ## CLI の基本
 
 ```bash
-npx @marp-team/marp-cli@latest --theme-set themes/tech.css <input.md> [options]
+npx @marp-team/marp-cli@latest --no-stdin --theme-set themes/tech.css <input.md> [options]
 ```
+
+CLI v4 では、非対話環境では先頭に **`--no-stdin`** を付けないと入力待ちで止まることがある。PDF/PPTX は **`--pdf` / `--pptx`** と **`-o` の出力パス**を明示する。
 
 ## よく使うコマンド
 
 **HTML に出力**
 ```bash
-npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/<title>/<title>.md -o slides/<title>/<title>.html
+npx @marp-team/marp-cli@latest --no-stdin --theme-set themes/tech.css slides/<title>/<title>.md -o slides/<title>/<title>.html
 ```
 
 **プレビュー（ブラウザで開く）**
@@ -33,10 +35,12 @@ npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/<title>/<title
 npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/<title>/<title>.md --preview
 ```
 
-**PDF に出力**（出力拡張子を `.pdf` にすると PDF が生成される）
+**PDF に出力**
 ```bash
-npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/<title>/<title>.md -o slides/<title>/<title>.pdf
+npx @marp-team/marp-cli@latest --no-stdin --pdf --theme-set themes/tech.css slides/<title>/<title>.md -o slides/<title>/<title>.pdf --allow-local-files
 ```
+
+（Markdown やテーマから **ローカルファイル** を参照する場合のみ `--allow-local-files`。HTTPS の外部画像のみなら省略可。）
 
 **PowerPoint に出力**（拡張子 `.pptx`）
 ```bash
