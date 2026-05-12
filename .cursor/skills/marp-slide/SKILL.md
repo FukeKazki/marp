@@ -23,7 +23,7 @@ Use this skill when the user:
 1. **参照**: スライド記述の規約は .cursor/rules の Marp 用ルールを、構文・画像・詳細は marp-slide-reference スキルを参照すること。
 
 2. **Copy content from the template**:
-   - Use **`assets/template-tech.md`** as the only template. Set frontmatter **`theme: tech`**. ビルド時は `--theme-set themes/tech.css` を付ける（README / marp-slide-build スキル参照）。
+   - Use **`assets/template-tech.md`** as the only template. Set frontmatter **`theme: tech`**. ビルド時は `--theme-set themes/tech.css` を付ける（README / marp-slide-build スキル参照）。**単一ファイルを `-o` で出力するときは `-o` を `.md` より前に書く**（marp-slide-build の「重要」）。
 
 3. Structure content following conventions (title slide `<!-- _class: lead -->`, h2 は 5–7 文字、箇条書き 3–5 項目、適度な余白)。
 
