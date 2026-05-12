@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Marp で作成したスライド集" />
+    <meta name="color-scheme" content="dark" />
+    <title>Slides — YOSHINANI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div class="hero__inner">
+          <span class="hero__eyebrow"><span class="hero__prompt">$</span> ls ./slides</span>
+          <h1 class="hero__title">Slides<span class="hero__cursor">_</span></h1>
+          <p class="hero__lede">
+            Marp で書き溜めた発表資料。<br />
+            気になるカードを開くと HTML スライドが立ち上がります。
+          </p>
+        </div>
+      </header>
+
+      <main class="main" id="main">
+        <ul class="grid" id="grid" role="list"></ul>
+      </main>
+
+      <footer class="foot">
+        <a href="https://github.com/FukeKazki/marp" rel="noopener noreferrer">
+          github.com/FukeKazki/marp
+        </a>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

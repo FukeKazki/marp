@@ -7,13 +7,16 @@ slides/
   [タイトル]/           # 資料ごとのディレクトリ
     [タイトル].md       # ソース
     [タイトル].html     # ビルド成果物（gitignore）
+
+web/                    # 公開用フロントエンド (Vite + TypeScript)
+themes/tech.css         # Marp 共通テーマ
 ```
+
+## ローカルでのビルド・プレビュー
 
 Node.js と npm が入っていれば、インストール不要で次のコマンドで利用できます。
 
 **カスタムテーマ**: 共通テーマは `themes/tech.css`（Marp の theme 名: `tech`）です。**リポジトリルートで**実行し、コマンドに **`--theme-set themes/tech.css`** を付けてテーマを読み込んでください。
-
-## ビルド
 
 ```bash
 # HTML に出力（例: local-llm）
@@ -26,17 +29,50 @@ npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/local-llm/loca
 npx @marp-team/marp-cli@latest --theme-set themes/tech.css slides/local-llm/local-llm.md --preview
 ```
 
-## GitHub Pages での公開
+## 公開用サイト（`web/`）
 
-`slides/` や `themes/` に変更を push すると、GitHub Actions が自動でビルドし GitHub Pages にデプロイします。
+`web/` 配下に Vite + TypeScript で組んだ一覧ページがあります。ビルド時に `scripts/build-slides.mjs` が `slides/` 配下の Markdown を Marp で HTML 化し、`public/slides/<title>/<title>.html` に出力します。
 
-**初回セットアップ**: リポジトリの **Settings > Pages** で、Source に **GitHub Actions** を選択してください。
+```bash
+cd web
+npm install
+npm run dev      # 開発サーバー（スライドビルド → vite dev）
+npm run build    # スライドビルド → vite build。成果物は web/dist/
+npm run preview  # ビルド成果物をローカルで確認
+```
 
-**URL 形式**（`https://<owner>.github.io/<repo>/` がベース）:
+## Cloudflare へのデプロイ
 
-| ページ | URL |
-|--------|-----|
-| 一覧 | `https://<owner>.github.io/<repo>/` |
-| 各スライド | `https://<owner>.github.io/<repo>/<タイトル>/<タイトル>.html` |
+GitHub Actions / GitHub Pages は使いません。Cloudflare のダッシュボードから GitHub リポジトリを接続して自動デプロイします。
 
-例: `local-llm` の場合 → `.../local-llm/local-llm.html`
+### Workers (Static Assets) を使う場合
+
+Cloudflare ダッシュボード → **Workers & Pages** → **Create** → **Import a repository** から `FukeKazki/marp` を選択し、以下を設定します。
+
+| 項目 | 値 |
+|------|----|
+| Root directory | `web` |
+| Build command | `npm install && npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+`web/wrangler.jsonc` に `assets.directory = ./dist` を定義しているので、ビルド後の `web/dist/` がそのまま静的サイトとして配信されます。
+
+### Cloudflare Pages を使う場合
+
+Cloudflare ダッシュボード → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** で同じリポジトリを選び、以下を設定します。
+
+| 項目 | 値 |
+|------|----|
+| Framework preset | None (or Vite) |
+| Build command | `npm install && npm run build` |
+| Build output directory | `dist` |
+| Root directory (advanced) | `web` |
+
+どちらの場合も `main` ブランチへ push すると自動でビルド・デプロイされます。
+
+### URL 形式
+
+| ページ | パス |
+|--------|------|
+| 一覧 | `/` |
+| 各スライド | `/slides/<タイトル>/<タイトル>.html` |
