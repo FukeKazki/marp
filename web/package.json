@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run build:slides && vite",
+    "dev": "npm run build:slides && portless marp vite",
     "build": "npm run build:slides && tsc --noEmit && vite build",
     "build:slides": "node scripts/build-slides.mjs",
     "preview": "vite preview"
